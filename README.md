@@ -25,6 +25,7 @@ from sqlalchemy.orm import joinedload
 analistas = db.query(Analista).options(joinedload(Analista.equipamentos)).all()
 
 ```
+![Query otimizada](otimizado.png)
 
 ## 🛠️ Tecnologias Utilizadas
 

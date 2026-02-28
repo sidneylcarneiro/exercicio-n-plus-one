@@ -2,7 +2,6 @@ from database import SessionLocal, Analista, Equipamento
 
 db = SessionLocal()
 
-# 1. Criar Analistas
 analistas_nomes = ["Ana", "Pedro", "João", "Mariana", "Roberto"]
 analistas_objs = []
 
@@ -11,9 +10,8 @@ for nome in analistas_nomes:
     db.add(a)
     analistas_objs.append(a)
 
-db.commit() # Salva para gerar os IDs
+db.commit() 
 
-# 2. Criar Equipamentos para cada analista (Simulando o cenário real)
 equipamentos = [
     {"modelo": "Notebook Dell Latitude", "dono": analistas_objs[0]},
     {"modelo": "Monitor LG 29'", "dono": analistas_objs[0]},

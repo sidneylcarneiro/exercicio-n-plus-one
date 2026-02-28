@@ -1,7 +1,6 @@
 from sqlalchemy import create_engine, Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship, sessionmaker, declarative_base
 
-# echo=True é fundamental aqui para você VER o problema N+1 no terminal
 engine = create_engine("sqlite:///inventario.db", echo=True)
 SessionLocal = sessionmaker(bind=engine)
 Base = declarative_base()
@@ -11,7 +10,6 @@ class Analista(Base):
     id = Column(Integer, primary_key=True)
     nome = Column(String)
     
-    # Relação: Um analista tem vários equipamentos
     equipamentos = relationship("Equipamento", back_populates="dono")
 
 class Equipamento(Base):
